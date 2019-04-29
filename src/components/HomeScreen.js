@@ -36,7 +36,7 @@ class Home extends Component {
       <Container>
         <Content padder>
          <View>
-           <Text>Hoba</Text>
+           <Text>Dashboard</Text>
          </View>
         </Content>
       </Container>
