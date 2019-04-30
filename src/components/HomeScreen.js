@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import {
   Text,
-  View
+  View,
+  StatusBar
 } from 'react-native';
 
 import {
@@ -34,11 +35,10 @@ class Home extends Component {
   render() {
     return (
       <Container>
-        <Content padder>
-         <View>
-           <Text>Dashboard</Text>
-         </View>
-        </Content>
+        <StatusBar barStyle="light-content" backgroundColor="#1749A6" />
+        <View style={{ margin: 20 }}>
+          <Text style={{ fontSize: 21 }}>Burası uygulamanın ana sayfası. Burada öğretmene ait tahtalar listelenecek</Text>
+        </View>
       </Container>
     );
   }
