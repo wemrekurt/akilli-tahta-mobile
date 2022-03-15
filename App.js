@@ -23,7 +23,7 @@ const AppNavigator = createDrawerNavigator(
     },
     Boards: {
       screen: BoardStack,
-      navigationOptions: { title: 'Tahtalar'}
+      navigationOptions: { title: 'Tüm Tahtalar'}
     }
   }
 );

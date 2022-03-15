@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Alert, StatusBar, View, Text } from 'react-native';
 import axios from 'axios';
-import { Button, Icon, Container, Content, Title, Spinner } from "native-base";
+import { Button, Icon, Container, Content, Title, Spinner, Card, CardItem, Body } from "native-base";
 
 class Boards extends Component {
 
   static navigationOptions = ({ navigation }) => {
     return {
-      title: 'Tahtalar',
+      title: 'Tüm Tahtalar',
       headerStyle: {
         backgroundColor: '#1749A6',
       },
@@ -37,7 +37,7 @@ class Boards extends Component {
   }
 
   loadBoards(){
-    axios.get('http://192.168.1.35/rooms.json')
+    axios.get('http://192.168.43.21/rooms.json')
       .then(response => {
         this.setState({boards: response.data, render: 'boards'})
       }).catch(err => {
@@ -61,7 +61,7 @@ class Boards extends Component {
   changeState(link){
     axios({
       method: 'POST',
-      url: 'http://192.168.1.35/rooms/'+link+'/chstate.json',
+      url: 'http://192.168.43.21/rooms/'+link+'/chstate.json',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
     }).then(response => {
       if(response.data.state){
@@ -111,6 +111,15 @@ class Boards extends Component {
               </Button>
             );
           })}
+          <Card style={{ marginTop: 10 }}>
+            <CardItem>
+              <Body>
+                <Text>
+                DİKKAT! Buradan tüm tahtalara erişebilirsiniz. Diğer öğretmenler dersteyken lütfen kilit müdahalesi yapmayın.
+                </Text>
+              </Body>
+            </CardItem>
+          </Card>
         </Content>
       </Container>
     );
